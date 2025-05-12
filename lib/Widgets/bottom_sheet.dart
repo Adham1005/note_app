@@ -7,32 +7,52 @@ class BottomSheetItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10, top: 30, right: 10, bottom: 20),
-      child: Column(
-        children: [
-          CustomTextFormField(hintText: 'Title'),
-          SizedBox(
-            height: 20,
-          ),
-          CustomTextFormField(
-            hintText: 'Content',
-            maxLines: 5,
-          ),
-          Spacer(),
-          Align(
-            alignment: Alignment.centerRight,
-            child: FloatingActionButton(
-              onPressed: () {
-                // TODO
-              },
-              child: Icon(
-                Icons.save_as_outlined,
-                color: Colors.white,
-              ),
+      padding: EdgeInsets.only(
+          left: 10,
+          top: 30,
+          right: 10,
+          bottom: MediaQuery.of(context).viewInsets.bottom),
+      child: AddNoteForm(),
+    );
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
+    super.key,
+  });
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  String? title, subTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CustomTextFormField(hintText: 'Title'),
+        SizedBox(
+          height: 20,
+        ),
+        CustomTextFormField(
+          hintText: 'Content',
+          maxLines: 5,
+        ),
+        Spacer(),
+        Align(
+          alignment: Alignment.centerRight,
+          child: FloatingActionButton(
+            onPressed: () {},
+            child: Icon(
+              Icons.save_as_outlined,
+              color: Colors.white,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -11,7 +11,7 @@ class NoteCardItemListView extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return NoteCardItem();
       },
-      itemCount: 3,
+      itemCount: 4,
     );
   }
 }

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/Views/edit_note_screen.dart';
 
-class NoteCardItem extends StatelessWidget {
+class NoteCardItem extends StatefulWidget {
   const NoteCardItem({
     super.key,
   });
 
+  @override
+  State<NoteCardItem> createState() => _NoteCardItemState();
+}
+
+class _NoteCardItemState extends State<NoteCardItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
