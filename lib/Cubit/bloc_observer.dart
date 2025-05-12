@@ -1,34 +1,27 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CubitObserver implements BlocObserver {
+class MyBlocObserver extends BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
-    debugPrint('Change = $change');
-  }
-
-  @override
-  void onClose(BlocBase bloc) {
-    debugPrint('Close = $bloc');
-  }
-
-  @override
-  void onCreate(BlocBase bloc) {
-    debugPrint('Create = $bloc');
+    super.onChange(bloc, change);
+    print('onChange: ${bloc.runtimeType}, $change');
   }
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
-    // TODO: implement onError
+    super.onError(bloc, error, stackTrace);
+    print('onError: ${bloc.runtimeType}, $error');
   }
 
   @override
-  void onEvent(Bloc bloc, Object? event) {
-    // TODO: implement onEvent
+  void onCreate(BlocBase bloc) {
+    super.onCreate(bloc);
+    print('onCreate: ${bloc.runtimeType}');
   }
 
   @override
-  void onTransition(Bloc bloc, Transition transition) {
-    // TODO: implement onTransition
+  void onClose(BlocBase bloc) {
+    super.onClose(bloc);
+    print('onClose: ${bloc.runtimeType}');
   }
 }

@@ -8,8 +8,10 @@ import 'Cubit/bloc_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  Bloc.observer = MyBlocObserver();
+
   await Hive.initFlutter();
-  Bloc.observer = CubitObserver();
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>(HiveNotesService.boxName);
   runApp(const MyApp());
